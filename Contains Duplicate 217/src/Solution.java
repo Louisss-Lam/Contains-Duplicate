@@ -1,22 +1,22 @@
+import java.util.HashSet;
 
 public class Solution {
 
 	public static void main(String[] args) {
-		int[] prices = {7,1,5,3,6,4};
-		System.out.println(maxProfit(prices));
+		int[] nums = {7,1,5,3,6,4,4};
+		System.out.println(containsDuplicate(nums));
 		
 	}
 		
-	public static int maxProfit(int[] prices) {
-		int maxProfit = 0;
-		int minSoFar = prices[0];
+	public static boolean containsDuplicate(int[] nums) {
+		HashSet<Integer> numbers = new HashSet<>();
 		
-		for(int i = 0; i < prices.length; i++) {
-			minSoFar = Math.min(minSoFar, prices[i]);
-			int profit = prices[i] - minSoFar;
-			maxProfit = Math.max(profit, maxProfit);
+		for(int i = 0; i < nums.length; i++) {
+			if(numbers.contains(nums[i])) return true;
+			numbers.add(nums[i]);
 		}
-		return maxProfit;
+		
+		return false;
 	}
 	
 }
